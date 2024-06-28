@@ -1,6 +1,6 @@
 import { Chain, createPublicClient, http, defineChain } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
-import { arbitrumSepolia } from 'viem/chains';
+import {  arbitrumSepolia} from 'viem/chains';
 import {
   createTokenBridgePrepareSetWethGatewayTransactionReceipt,
   createTokenBridgePrepareSetWethGatewayTransactionRequest,
@@ -10,6 +10,46 @@ import {
 import { sanitizePrivateKey } from '@arbitrum/orbit-sdk/utils';
 import { config } from 'dotenv';
 config();
+
+const baseSepolia = /*#__PURE__*/ defineChain(
+  {
+    id: 84532,
+    network: 'base-sepolia',
+    name: 'Base Sepolia',
+    nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
+    rpcUrls: {
+      alchemy: {
+        http: ['https://base-sepolia.g.alchemy.com/v2'],
+        webSocket: ['wss://base-sepolia.g.alchemy.com/v2'],
+      },
+      default: {
+        http: ['https://sepolia.base.org'],
+      },
+      public: {
+        http: ['https://sepolia.base.org'],
+      },
+    },
+    blockExplorers: {
+      blockscout: {
+        name: 'Blockscout',
+        url: 'https://base-sepolia.blockscout.com',
+      },
+      default: {
+        name: 'Blockscout',
+        url: 'https://base-sepolia.blockscout.com',
+      },
+    },
+    contracts: {
+      multicall3: {
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
+        blockCreated:11846544,
+      },
+    },
+    testnet: true,
+  
+  },
+  
+)
 
 function getBlockExplorerUrl(chain: Chain) {
   return chain.blockExplorers?.default.url;
@@ -38,7 +78,7 @@ if (typeof process.env.PARENT_CHAIN_RPC === 'undefined' || process.env.PARENT_CH
 }
 
 // set the parent chain and create a public client for it
-const parentChain = arbitrumSepolia;
+const parentChain = baseSepolia ;
 const parentChainPublicClient = createPublicClient({
   chain: parentChain,
   transport: http(process.env.PARENT_CHAIN_RPC),

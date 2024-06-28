@@ -1,0 +1,82 @@
+PS F:\Code\Complare\arbitrum-orbit-sdk\examples\create-token-bridge-eth> node ./dist/index.js         
+(node:12476) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Deploying the TokenBridge...
+Deployed in https://base-sepolia.blockscout.com/tx/0x89f0268de7da5ed34d15c1b3a0be683f7c2148892da07689e2ce7d097db8b97c
+Waiting for retryable tickets to execute on the Orbit chain...
+Retryables executed
+Transaction hash for first retryable is 0xf76d58f0ccc08fd3e0bebd885f9b6d02df5461e4c5769dd74fe737ae5329247c
+Transaction hash for second retryable is 0x581065e093cc5ec758110519752ad38b9df6874da916cbf3cca8b4f1f4f87795
+TokenBridge contracts: {
+  parentChainContracts: {
+    router: '0x9650FAe0125BdD92626786Dc1dfC6554a01c9e26',
+    standardGateway: '0x5DA248A5e1FB3523F6A305f0D34F8f40fA7e8C8D',
+    customGateway: '0xee6714063aBd05D295380a8fB21135f305dE2404',
+    wethGateway: '0x3D1AF9bce5F1597a3A925cEB7725a4DBcb0eB4C1',
+    weth: '0x1BDD24840e119DC2602dCC587Dd182812427A5Cc',
+    multicall: '0xE0753Df74d86D6B25aCd2d049389c7E52e2dd728'
+  },
+  orbitChainContracts: {
+    router: '0x401Dc22876ff8Bc1837857c698D98Dd88991F1eB',
+    standardGateway: '0xd539cb65D8848782A285333e584E4b8dA02ac945',
+    customGateway: '0x8BE2B72ddAceC8957f1f1C8c28093BCF3d85Dc6f',
+    wethGateway: '0xcA90173Bb68FCc22bc6847de0C7Aa439f19c5c87',
+    weth: '0x27d7adF6957d6976F6cb812232eCD9a29EfE3Bdf',
+    proxyAdmin: '0xfC95A7f751E912020AC3aE9aCa988943ef271df5',
+    beaconProxyFactory: '0xAb24e1c23b2215a6a4319dD866f8A9b6f8800545',
+    upgradeExecutor: '0x4F5F25351f9178d18657444D5F268958DfCfC168',
+    multicall: '0x0C97cBE5bF9D153b5FdA807187452861D61fD52f'
+  }
+}
+Network 5918836757 already included
+file:///F:/Code/Complare/arbitrum-orbit-sdk/node_modules/viem/_esm/clients/transports/http.js:43
+                    throw new RpcRequestError({
+                          ^
+
+RpcRequestError: RPC Request failed.
+
+URL: https://base-sepolia-rpc.publicnode.com
+Request body: {"method":"eth_getLogs","params":[{"address":"0x637677A8120ABdcdF06B0706AB1E8201d433A799","topics":["0xfc1b83c11d99d08a938e0b82a0bd45f822f71ff5abf23f999c93c4533d752464"],"fromBlock":"0xa1d971","toBlock":"latest"}]}
+
+Details: exceed maximum block range: 50000
+Version: viem@1.21.3
+    at request (file:///F:/Code/Complare/arbitrum-orbit-sdk/node_modules/viem/_esm/clients/transports/http.js:43:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async withRetry.delay.count.count (file:///F:/Code/Complare/arbitrum-orbit-sdk/node_modules/viem/_esm/utils/buildRequest.js:26:20)
+    at async attemptRetry (file:///F:/Code/Complare/arbitrum-orbit-sdk/node_modules/viem/_esm/utils/promise/withRetry.js:12:30) {  
+  details: 'exceed maximum block range: 50000',
+  docsPath: undefined,
+  metaMessages: [
+    'URL: https://base-sepolia-rpc.publicnode.com',
+    'Request body: {"method":"eth_getLogs","params":[{"address":"0x637677A8120ABdcdF06B0706AB1E8201d433A799","topics":["0xfc1b83c11d99d08a938e0b82a0bd45f822f71ff5abf23f999c93c4533d752464"],"fromBlock":"0xa1d971","toBlock":"latest"}]}'
+  ],
+  shortMessage: 'RPC Request failed.',
+  version: 'viem@1.21.3',
+  cause: { code: -32701, message: 'exceed maximum block range: 50000' },
+  code: -32701
+}
+
+
+
+
+
+PS F:\Code\Complare\arbitrum-orbit-sdk\examples\create-token-bridge-eth> yarn run dev
+yarn run v1.22.22
+$ tsc --outDir dist && node ./dist/index.js
+(node:10816) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Deploying the TokenBridge...
+Deployed in https://base-sepolia.blockscout.com/tx/0x92a57ab8dc399f09f5db68fcf7134b6ec95d415d57137d84080f8b0e0fb5a154
+Waiting for retryable tickets to execute on the Orbit chain...
+F:\Code\Complare\arbitrum-orbit-sdk\examples\create-token-bridge-eth\node_modules\@arbitrum\orbit-sdk\dist\createTokenBridgePrepareTransactionReceipt.js:43
+                throw Error(`Unexpected status for retryable ticket: ${messages[1].retryableCreationId}`);
+                      ^
+
+Error: Unexpected status for retryable ticket: 0x8062196cb7de842356ff11c51949062664d290d56d68f00f5fbbd26bdeefebb2
+    at Object.waitForRetryables (F:\Code\Complare\arbitrum-orbit-sdk\examples\create-token-bridge-eth\node_modules\@arbitrum\orbit-sdk\dist\createTokenBridgePrepareTransactionReceipt.js:43:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async main (file:///F:/Code/Complare/arbitrum-orbit-sdk/examples/create-token-bridge-eth/dist/index.js:106:41)
+
+Node.js v18.12.1
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

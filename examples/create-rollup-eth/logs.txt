@@ -1,0 +1,167 @@
+PS F:\Code\Complare\arbitrum-orbit-sdk\examples\create-rollup-eth> yarn run dev
+yarn run v1.22.22
+$ tsc --outDir dist && node ./dist/index.js
+ batchPosterPrivateKey 0xa3cf309b8ca1aae643b8922a10b3d9566bdf21b8cee1258a067df27c4485e863 
+
+batchPoster 0xe007528AB9A46565BA35248944ccdAf63Caf26C9 
+
+validatorPrivateKey  0xb447c063e72d59f552bc1da5370ac327b7c81c2ce37a02ae579bf41024c6ac6f 
+
+validator 0xFCFe251FBfD0Cd7F3f9CB2Efbc29a2328658DDa2 
+
+parentChain {
+  id: 84532,
+  network: 'base-sepolia',
+  name: 'Base Sepolia',
+  nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
+  rpcUrls: {
+    alchemy: { http: [Array], webSocket: [Array] },
+    default: { http: [Array] },
+    public: { http: [Array] }
+  },
+  blockExplorers: {
+    blockscout: { name: 'Blockscout', url: 'https://base-sepolia.blockscout.com' },
+    default: { name: 'Blockscout', url: 'https://base-sepolia.blockscout.com' }
+  },
+  testnet: true,
+  sourceId: 11155111,
+  fees: undefined,
+  formatters: {
+    block: { exclude: undefined, format: [Function: format], type: 'block' },
+    transaction: {
+      exclude: undefined,
+      format: [Function: format],
+      type: 'transaction'
+    },
+    transactionReceipt: {
+      exclude: undefined,
+      format: [Function: format],
+      type: 'transactionReceipt'
+    }
+  },
+  serializers: undefined
+}
+
+parentChainPublicClient {
+  account: undefined,
+  batch: undefined,
+  cacheTime: 4000,
+  chain: {
+    id: 84532,
+    network: 'base-sepolia',
+    name: 'Base Sepolia',
+    nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
+    rpcUrls: { alchemy: [Object], default: [Object], public: [Object] },
+    blockExplorers: { blockscout: [Object], default: [Object] },
+    testnet: true,
+    sourceId: 11155111,
+    fees: undefined,
+    formatters: {
+      block: [Object],
+      transaction: [Object],
+      transactionReceipt: [Object]
+    },
+    serializers: undefined
+  },
+  key: 'public',
+  name: 'Public Client',
+  pollingInterval: 4000,
+  request: [AsyncFunction (anonymous)],
+  transport: {
+    key: 'http',
+    name: 'HTTP JSON-RPC',
+    request: [AsyncFunction: request],
+    retryCount: 3,
+    retryDelay: 150,
+    timeout: 10000,
+    type: 'http',
+    fetchOptions: undefined,
+    url: 'https://base-sepolia-rpc.publicnode.com'
+  },
+  type: 'publicClient',
+  uid: 'd57123faf31',
+  extend: [Function (anonymous)],
+  call: [Function: call],
+  createBlockFilter: [Function: createBlockFilter],
+  createContractEventFilter: [Function: createContractEventFilter],
+  createEventFilter: [Function: createEventFilter],
+  createPendingTransactionFilter: [Function: createPendingTransactionFilter],
+  estimateContractGas: [Function: estimateContractGas],
+  estimateGas: [Function: estimateGas],
+  getBalance: [Function: getBalance],
+  getBlock: [Function: getBlock],
+  getBlockNumber: [Function: getBlockNumber],
+  getBlockTransactionCount: [Function: getBlockTransactionCount],
+  getBytecode: [Function: getBytecode],
+  getChainId: [Function: getChainId],
+  getContractEvents: [Function: getContractEvents],
+  getEnsAddress: [Function: getEnsAddress],
+  getEnsAvatar: [Function: getEnsAvatar],
+  getEnsName: [Function: getEnsName],
+  getEnsResolver: [Function: getEnsResolver],
+  getEnsText: [Function: getEnsText],
+  getFeeHistory: [Function: getFeeHistory],
+  estimateFeesPerGas: [Function: estimateFeesPerGas],
+  getFilterChanges: [Function: getFilterChanges],
+  getFilterLogs: [Function: getFilterLogs],
+  getGasPrice: [Function: getGasPrice],
+  getLogs: [Function: getLogs],
+  getProof: [Function: getProof],
+  estimateMaxPriorityFeePerGas: [Function: estimateMaxPriorityFeePerGas],
+  getStorageAt: [Function: getStorageAt],
+  getTransaction: [Function: getTransaction],
+  getTransactionConfirmations: [Function: getTransactionConfirmations],
+  getTransactionCount: [Function: getTransactionCount],
+  getTransactionReceipt: [Function: getTransactionReceipt],
+  multicall: [Function: multicall],
+  prepareTransactionRequest: [Function: prepareTransactionRequest],
+  readContract: [Function: readContract],
+  sendRawTransaction: [Function: sendRawTransaction],
+  simulateContract: [Function: simulateContract],
+  verifyMessage: [Function: verifyMessage],
+  verifyTypedData: [Function: verifyTypedData],
+  uninstallFilter: [Function: uninstallFilter],
+  waitForTransactionReceipt: [Function: waitForTransactionReceipt],
+  watchBlocks: [Function: watchBlocks],
+  watchBlockNumber: [Function: watchBlockNumber],
+  watchContractEvent: [Function: watchContractEvent],
+  watchEvent: [Function: watchEvent],
+  watchPendingTransactions: [Function: watchPendingTransactions]
+}
+
+deployer {
+  address: '0x8a770B7700f941Bb2E6Dd023AD3B22c2c41C5901',
+  signMessage: [AsyncFunction: signMessage],
+  signTransaction: [AsyncFunction: signTransaction],
+  signTypedData: [AsyncFunction: signTypedData],
+  source: 'privateKey',
+  type: 'local',
+  publicKey: '0x04921ea3b7a05ef774b2e29f5634eb2d41d5a8b7b314e6f43f5841dfb21d216dbb4c00923c588402c7acb70170a0d7657ed9e88cfa0c8abf7592295e3601a5312e'
+}
+
+chainId 5918836757
+createRollupConfig {
+  extraChallengeTimeBlocks: 0n,
+  stakeToken: '0x0000000000000000000000000000000000000000',
+  baseStake: 100000000000000000n,
+  wasmModuleRoot: '0x8b104a2e80ac6165dc58b9048de12f301d70b02a0ab51396c22b4b4b802a16a4',
+  loserStakeEscrow: '0x0000000000000000000000000000000000000000',
+  genesisBlockNum: 0n,
+  confirmPeriodBlocks: 900n,
+  sequencerInboxMaxTimeVariation: {
+    delayBlocks: 172800n,
+    futureBlocks: 1800n,
+    delaySeconds: 345600n,
+    futureSeconds: 3600n
+  },
+  chainId: 5918836757n,
+  owner: '0x8a770B7700f941Bb2E6Dd023AD3B22c2c41C5901',
+  chainConfig: '{"homesteadBlock":0,"daoForkBlock":null,"daoForkSupport":true,"eip150Block":0,"eip150Hash":"0x0000000000000000000000000000000000000000000000000000000000000000","eip155Block":0,"eip158Block":0,"byzantiumBlock":0,"constantinopleBlock":0,"petersburgBlock":0,"istanbulBlock":0,"muirGlacierBlock":0,"berlinBlock":0,"londonBlock":0,"clique":{"period":0,"epoch":0},"arbitrum":{"EnableArbOS":true,"AllowDebugPrecompiles":false,"DataAvailabilityCommittee":true,"InitialArbOSVersion":20,"GenesisBlockNum":0,"MaxCodeSize":24576,"MaxInitCodeSize":49152,"InitialChainOwner":"0x8a770B7700f941Bb2E6Dd023AD3B22c2c41C5901"},"chainId":5918836757}'
+}
+
+(node:12960) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Deploying the Rollup...
+Deployed in https://base-sepolia.blockscout.com/tx/0x2598a84d07cdc86065b3f0d63bb15519d5805696c8dcfe5d3f00735018179094
+Deployment transaction hash is 0x2598a84d07cdc86065b3f0d63bb15519d5805696c8dcfe5d3f00735018179094
+Done in 22.80s.

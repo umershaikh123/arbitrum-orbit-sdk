@@ -1,0 +1,29 @@
+{
+    "networkFeeReceiver": "0x8a770B7700f941Bb2E6Dd023AD3B22c2c41C5901",
+    "infrastructureFeeCollector": "0x8a770B7700f941Bb2E6Dd023AD3B22c2c41C5901",
+    "staker": "0xFCFe251FBfD0Cd7F3f9CB2Efbc29a2328658DDa2 ",
+    "batchPoster": "0xe007528AB9A46565BA35248944ccdAf63Caf26C9 ",
+    "chainOwner": "0x8a770B7700f941Bb2E6Dd023AD3B22c2c41C5901",
+    "chainId": 5918836757,
+    "chainName": "Complare chain",
+    "minL2BaseFee": 100000000,
+    "parentChainId":84532 ,
+    "parent-chain-node-url": "https://sepolia.base.org",
+    "utils": "0x0A2BFfDFF727f01347B001CEAB1C18E2294a1bCf",
+    "rollup": "0x637677A8120ABdcdF06B0706AB1E8201d433A799",
+    "inbox": "0x6EaDDF737e5596e9548783207d62f8AA70b44c64",
+    "nativeToken": "0x0000000000000000000000000000000000000000",
+    "outbox": "0xe56DBA887A29E5B1f0af8430e09bA4e1AE50aEb6",
+    "rollupEventInbox": "0x7344BC5A34df89028A7B6bD2A1bBd5012aB44750",
+    "challengeManager": "0x0Bd79C8e11663B2231814C125c7d494F64689C4B",
+    "adminProxy": "0x7Af2E75678E4B6f82EFCF573f7B32e65bA77489E",
+    "sequencerInbox": "0xCe4DA52c9dD9BBe5d3e13Ee72BcBe38EbF521574",
+    "bridge": "0xC06f9abbc5Aa7B746b1E6473FF3b153789D1e7E7",
+    "upgradeExecutor": "0x863e67642578f5fD74869C591B6981c8663dF097",
+    "validatorUtils": "0x0A2BFfDFF727f01347B001CEAB1C18E2294a1bCf",
+    "validatorWalletCreator": "0xa770D71aBD0A9d82be6B6B1FF197eb4FbffeeDB3",
+    "deployedAtBlockNumber": 11869451
+  }
+  
+
+ 

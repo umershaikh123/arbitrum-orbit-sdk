@@ -1,6 +1,6 @@
 import { createPublicClient, http } from 'viem';
 import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
-import { arbitrumSepolia } from 'viem/chains';
+import {  baseSepolia } from 'viem/chains';
 import {
   prepareChainConfig,
   createRollupPrepareDeploymentParamsConfig,
@@ -31,25 +31,33 @@ if (typeof process.env.PARENT_CHAIN_RPC === 'undefined' || process.env.PARENT_CH
 // load or generate a random batch poster account
 const batchPosterPrivateKey = withFallbackPrivateKey(process.env.BATCH_POSTER_PRIVATE_KEY);
 const batchPoster = privateKeyToAccount(batchPosterPrivateKey).address;
+console.log(" batchPosterPrivateKey" , batchPosterPrivateKey , "\n");
+console.log("batchPoster" ,batchPoster , "\n");
+
+
 
 // load or generate a random validator account
 const validatorPrivateKey = withFallbackPrivateKey(process.env.VALIDATOR_PRIVATE_KEY);
 const validator = privateKeyToAccount(validatorPrivateKey).address;
-
+console.log("validatorPrivateKey " ,validatorPrivateKey  , "\n");
+console.log("validator" ,validator , "\n");
 // set the parent chain and create a public client for it
-const parentChain = arbitrumSepolia;
+const parentChain = baseSepolia;
 const parentChainPublicClient = createPublicClient({
   chain: parentChain,
   transport: http(process.env.PARENT_CHAIN_RPC),
 });
+console.log("parentChain" ,parentChain , "\n");
+console.log("parentChainPublicClient" ,parentChainPublicClient , "\n");
 
+ 
 // load the deployer account
 const deployer = privateKeyToAccount(sanitizePrivateKey(process.env.DEPLOYER_PRIVATE_KEY));
-
+console.log("deployer" ,deployer , "\n");
 async function main() {
   // generate a random chain id
   const chainId = generateChainId();
-
+  console.log("chainId" ,chainId );
   const createRollupConfig = createRollupPrepareDeploymentParamsConfig(parentChainPublicClient, {
     chainId: BigInt(chainId),
     owner: deployer.address,
@@ -61,6 +69,9 @@ async function main() {
       },
     }),
   });
+
+  console.log("createRollupConfig" ,createRollupConfig , "\n");
+
 
   try {
     await createRollup({

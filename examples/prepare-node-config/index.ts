@@ -1,6 +1,6 @@
 import { writeFile } from 'fs/promises';
-import { Chain, createPublicClient, http } from 'viem';
-import { arbitrumSepolia } from 'viem/chains';
+import { Chain, createPublicClient, http, defineChain } from 'viem';
+// import {   baseSepolia } from 'viem/chains';
 import {
   ChainConfig,
   PrepareNodeConfigParams,
@@ -11,6 +11,46 @@ import {
 import { getParentChainLayer } from '@arbitrum/orbit-sdk/utils';
 import { config } from 'dotenv';
 config();
+
+const baseSepolia = /*#__PURE__*/ defineChain(
+  {
+    id: 84532,
+    network: 'base-sepolia',
+    name: 'Base Sepolia',
+    nativeCurrency: { name: 'Sepolia Ether', symbol: 'ETH', decimals: 18 },
+    rpcUrls: {
+      alchemy: {
+        http: ['https://base-sepolia.g.alchemy.com/v2'],
+        webSocket: ['wss://base-sepolia.g.alchemy.com/v2'],
+      },
+      default: {
+        http: ['https://sepolia.base.org'],
+      },
+      public: {
+        http: ['https://sepolia.base.org'],
+      },
+    },
+    blockExplorers: {
+      blockscout: {
+        name: 'Blockscout',
+        url: 'https://base-sepolia.blockscout.com',
+      },
+      default: {
+        name: 'Blockscout',
+        url: 'https://base-sepolia.blockscout.com',
+      },
+    },
+    contracts: {
+      multicall3: {
+        address: '0xca11bde05977b3631167028862be2a173976ca11',
+        blockCreated:11846544,
+      },
+    },
+    testnet: true,
+  
+  },
+  
+)
 
 function getRpcUrl(chain: Chain) {
   return chain.rpcUrls.default.http[0];
@@ -35,7 +75,7 @@ if (typeof process.env.PARENT_CHAIN_RPC === 'undefined' || process.env.PARENT_CH
 }
 
 // set the parent chain and create a public client for it
-const parentChain = arbitrumSepolia;
+const parentChain = baseSepolia;
 const parentChainPublicClient = createPublicClient({
   chain: parentChain,
   transport: http(process.env.PARENT_CHAIN_RPC),
@@ -71,7 +111,7 @@ async function main() {
 
   // prepare the node config
   const nodeConfigParameters: PrepareNodeConfigParams = {
-    chainName: 'My Orbit Chain',
+    chainName: 'Complare chain',
     chainConfig,
     coreContracts,
     batchPosterPrivateKey: process.env.BATCH_POSTER_PRIVATE_KEY as `0x${string}`,
@@ -89,6 +129,12 @@ async function main() {
 
   await writeFile('node-config.json', JSON.stringify(nodeConfig, null, 2));
   console.log(`Node config written to "node-config.json"`);
+  console.log("txHash", txHash , "\n");
+  console.log("tx", tx , "\n");
+  console.log("txReceipt", txReceipt , "\n");
+  console.log("nodeConfigParameters", nodeConfigParameters , "\n");
+  console.log("coreContracts", coreContracts , "\n");
+  console.log("chainConfig", chainConfig , "\n");
 }
 
 main();

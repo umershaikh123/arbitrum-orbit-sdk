@@ -9,5 +9,9 @@
   "devDependencies": {
     "@types/node": "^20.9.0",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@arbitrum/orbit-sdk": "^0.17.0",
+    "viem": "^1.20.0"
   }
 }
